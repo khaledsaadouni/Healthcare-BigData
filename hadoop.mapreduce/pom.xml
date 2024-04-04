@@ -55,7 +55,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>hadoop.mapreduce.tp1.WordCount</mainClass>
+                            <mainClass>hadoop.mapreduce.tp1.sentiment_plateform</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
