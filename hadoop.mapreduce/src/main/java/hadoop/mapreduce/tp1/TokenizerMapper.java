@@ -25,7 +25,7 @@ public class TokenizerMapper
         String line = value.toString();
         if (!line.startsWith("id")) {
             // Splitting based on one or more spaces or tabs
-            String[] fields = line.split(",");
+            String[] fields = line.split("\t");
             if (fields.length >= 12) {
                 String sentiment = fields[3];
                 String plateform = fields[6];

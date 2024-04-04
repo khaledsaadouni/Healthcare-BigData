@@ -19,7 +19,7 @@ public class sentiment_plateform {
         job.setReducerClass(sentimentPlateformReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
-        FileInputFormat.addInputPath(job, new Path("src/main/resources/input/test.txt"));
+        FileInputFormat.addInputPath(job, new Path("src/main/resources/input/sentimentdataset.txt"));
         FileOutputFormat.setOutputPath(job, new Path("src/main/resources/output"));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
