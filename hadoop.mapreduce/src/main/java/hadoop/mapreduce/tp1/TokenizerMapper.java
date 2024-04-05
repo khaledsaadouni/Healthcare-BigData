@@ -26,13 +26,11 @@ public class TokenizerMapper
         if (!line.startsWith("id")) {
             // Splitting based on one or more spaces or tabs
             String[] fields = line.split("\t");
-            if (fields.length >= 12) {
                 String sentiment = fields[3];
                 String plateform = fields[6];
                 sentiment_plateform.set(sentiment + "," + plateform);
                 System.out.println(sentiment_plateform);
                 context.write(sentiment_plateform, one);
-            }
         }
     }
 }
