@@ -16,22 +16,36 @@ public class WordCountTask {
 
     public static void main(String[] args) {
         //Preconditions.checkArgument(args.length > 1, "Please provide the path of input file and output dir as parameters.");
-        new WordCountTask().run(args[0], args[1]);
+//        new WordCountTask().run(args[0], args[1]);
+        new WordCountTask().run("src/main/resources/input/healthcare_dataset.txt","src/main/resources/output" );
     }
 
     public void run(String inputFilePath, String outputDir) {
 
+        String master = "local[*]";
         SparkConf conf = new SparkConf()
-                .setAppName(WordCountTask.class.getName());
-
+                .setAppName(WordCountTask.class.getName())
+                .setMaster(master);
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> textFile = sc.textFile(inputFilePath);
         JavaPairRDD<String, Integer> counts = textFile
-                .flatMap(s -> Arrays.asList(s.split("\t")).iterator())
+                .flatMap(s -> Arrays.asList(s.split(" ")).iterator())
                 .mapToPair(word -> new Tuple2<>(word, 1))
                 .reduceByKey((a, b) -> a + b);
         counts.saveAsTextFile(outputDir);
+//
+//        SparkConf conf = new SparkConf()
+//                .setAppName(WordCountTask.class.getName());
+//
+//        JavaSparkContext sc = new JavaSparkContext(conf);
+//
+//        JavaRDD<String> textFile = sc.textFile(inputFilePath);
+//        JavaPairRDD<String, Integer> counts = textFile
+//                .flatMap(s -> Arrays.asList(s.split("\t")).iterator())
+//                .mapToPair(word -> new Tuple2<>(word, 1))
+//                .reduceByKey((a, b) -> a + b);
+//        counts.saveAsTextFile(outputDir);
     }
 }
 
