@@ -31,8 +31,9 @@ public class healthcarePlatform {
                 job.setOutputKeyClass(Text.class);
                 job.setOutputValueClass(IntWritable.class);
             }
-            FileInputFormat.addInputPath(job, new Path("src/main/resources/input/healthcare_dataset.txt"));
-            FileOutputFormat.setOutputPath(job, new Path("src/main/resources/output"+i));
+
+            FileInputFormat.addInputPath(job, new Path(args[0]));
+            FileOutputFormat.setOutputPath(job, new Path(args[1]+i));
             job.waitForCompletion(true);
         }
     }
