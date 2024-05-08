@@ -4,7 +4,13 @@
 
 This project aims to visualize massive healthcare data containing information about patients, doctors, medical conditions, and hospitals. The architecture follows a lambda architecture, leveraging tools such as Kafka, Spark Streaming, HBase, Hadoop HDFS, and Flask for data processing, storage, and visualization.
 
-## Project Structure
+<p align="center">
+  <img src="Screenshot1.png" width="200"  />
+  <img src="Screenshot2.png" width="200" />
+  <img src="Screenshot3.png" width="200" />
+  <img src="Screenshot4.png" width="200" />
+</p>
+## Project Architecture 
 
 - **Batch Layer**:
   - Utilizes Hadoop HDFS for storing batch data.
@@ -19,6 +25,8 @@ This project aims to visualize massive healthcare data containing information ab
 
 - **Presentation Layer**:
   - Flask is used to develop a web application for visualizing the processed healthcare data.
+
+![Project Architecture ](Architecture.png)
 
 ## Steps to Run the Project
 
@@ -117,16 +125,16 @@ This project aims to visualize massive healthcare data containing information ab
 
 ## Usage
 
-1. Clone the repository.
-2. Follow the steps outlined in the README to set up the project and run the applications.
-3. Access the Flask web application for healthcare data visualization.
+1. Pull Hadop cluster Docker image.
+   ```bash
+   docker pull liliasfaxi/hadoop-cluster:latest
+   ```
+   or
 
-## Contributors
-
-- [Your Name]
-- [Contributor 1]
-- [Contributor 2]
-
-## License
-
-This project is licensed under the [License Name] License - see the [LICENSE.md](LICENSE.md) file for details.
+   ```bash
+   docker pull khaledsd/hadoop-cluster:old
+   ```
+2. Clone the repository.
+3. Follow the steps outlined in the README to set up the project and run the applications.
+4. Access the Flask web application for healthcare data visualization.
+ 
