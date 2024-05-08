@@ -10,6 +10,7 @@ This project aims to visualize massive healthcare data containing information ab
   <img src="Screenshot3.png" width="200" />
   <img src="Screenshot4.png" width="200" />
 </p>
+
 ## Project Architecture 
 
 - **Batch Layer**:
